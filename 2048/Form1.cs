@@ -16,11 +16,14 @@ namespace _2048
         {
             InitializeComponent();
         }
+        BoardClass board = new BoardClass();
 
         private void button5_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void btnQuit_Click(object sender, EventArgs e)
 
