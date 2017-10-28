@@ -8,8 +8,9 @@ namespace _2048
 {
     class BoardClass
     {
+        //
         const int Size = 4;
-      //int[][] Board = new int[Size][Size];
+        int[][] Board;
 
     }
 }
