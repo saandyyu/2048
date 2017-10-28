@@ -21,5 +21,10 @@ namespace _2048
         {
 
         }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
