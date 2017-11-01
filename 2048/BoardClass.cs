@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Phu Ly ,Sandy Yu
+//Cis 3309
 namespace _2048
 {
     class BoardClass
@@ -12,14 +14,22 @@ namespace _2048
         const int Size = 4;
         int Score;
         int BestScore;
-        int[,] Board;
+        
         
         //constructor for the boardClass
         public BoardClass()
         {
-            Board = new int[Size, Size];
+           
+        }
+        public void addRandomTile()
+        {
+           
         }
 
+        public void MoveAvailable()
+        {
+
+        }
         //method to see if the game reach 2048, if its reach, end the game.
         public Boolean reach2048()
         {
@@ -27,5 +37,6 @@ namespace _2048
             
             return result;
         } 
+
     }//end boardClass
 }//end Namespace

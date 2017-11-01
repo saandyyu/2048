@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 namespace _2048
 {
     //What is the purpose of the Tile Class? To keep track of the tiles
-    public class TileClass
+    public class Tile
     {
         private int value;
+        private bool merged;
         
         //instanticate tile with a value of zero==empty
-        public TileClass()
+        public Tile()
         {
             this.value=0 ;
         }
         //instanticate tile with a value
-        public TileClass(int value)
+        public Tile(int value)
         {
             this.value = value;
         }
@@ -33,27 +34,46 @@ namespace _2048
         }
 
         //if tile equal to other tiles. Make it easier to merge.
-        public bool sameTile(TileClass tile)
+        public bool sameTile(Tile tile)
         {
             return false;
         }
 
-        public void merge(TileClass tile)
+        public void merge(Tile tile)
         {
             this.setValue(value + tile.getValue());
         }
 
-        public bool equals(TileClass tile)
+        public bool equals(Tile otherTile)
         {
-            return tile.getValue() == this.getValue();
+            return otherTile.getValue() == this.getValue();
         }
 
         // * Set the value to zero. In other words, delete / empty the tile.
         // * 
-
         public void clear()
         {
             this.setValue(0);
+        }
+
+        //set the value to the class attributes
+        public void setMerged( bool mergeValue)
+        {
+            this.merged = mergeValue;
+        }
+        
+
+
+        public int mergeWith(Tile otherTile)
+        {
+            //do somthing
+            return value;
+        }
+        public bool canMergeWith(Tile otherTile)
+        {
+            //return true or fals. It takes in abother tiles and check to see if the two tiles can be merge. 
+            //if so merge it.
+            return false;
         }
 
     }//end of tileClass
