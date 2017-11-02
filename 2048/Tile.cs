@@ -62,8 +62,6 @@ namespace _2048
             this.merged = mergeValue;
         }
         
-
-
         public int mergeWith(Tile otherTile)
         {
             //do somthing
