@@ -15,7 +15,7 @@ namespace _2048
         int Score;
         int BestScore;
         
-        
+        //sandy was here
         //constructor for the boardClass
         public BoardClass()
         {
