@@ -28,17 +28,17 @@ namespace _2048
         
             pnlBoard.Visible = true;
 
-            Size size = new Size(50, 50);
+            Size size = new Size(85, 85);
             Point loc = new Point(0, 0);
             int padding = 10;
-            int topMargin = 70;
+            int topMargin = 10;
 
             // The board is treated like a maxRows x MaxCols array
             for (int row = 0; row < maxRows; row++)
             {
                 // For each new row, insert at left the Row i Button
                 loc.Y = topMargin + row * (size.Height + padding);
-                int extraLeftPadding = 100;
+                int extraLeftPadding = 12;
                 for (int col = 0; col < maxCols; col++)
                 {
                     newLabel[row, col] = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace _2048
                     newLabel[row, col].Visible = true;
                     newLabel[row, col].BackColor = System.Drawing.SystemColors.ScrollBar;
                     newLabel[row, col].Name = "lbl" + row + col;
-                    newLabel[row, col].Size = new System.Drawing.Size(55, 55);
+                    newLabel[row, col].Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     newLabel[row, col].TextAlign = ContentAlignment.MiddleCenter;
 
                     pnlBoard.Controls.Add(newLabel[row, col]);
@@ -70,7 +70,14 @@ namespace _2048
             Application.Exit();
         }
 
+        private void pnlBoard_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
