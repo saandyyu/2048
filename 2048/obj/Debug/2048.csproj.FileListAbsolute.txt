@@ -24,3 +24,6 @@ C:\Users\PHU\Documents\GitHub\2048\2048\obj\Debug\2048.csprojResolveAssemblyRefe
 C:\Users\PHU\Documents\GitHub\2048\2048\obj\Debug\_2048.Form1.resources
 C:\Users\PHU\Documents\GitHub\2048\2048\obj\Debug\_2048.Properties.Resources.resources
 C:\Users\PHU\Documents\GitHub\2048\2048\obj\Debug\2048.csproj.GenerateResource.Cache
+C:\Users\Haro\Documents\GitHub\2048\2048\bin\Debug\2048.exe.config
+C:\Users\Haro\Documents\GitHub\2048\2048\obj\Debug\2048.exe
+C:\Users\Haro\Documents\GitHub\2048\2048\obj\Debug\2048.pdb
