@@ -17,13 +17,14 @@ namespace _2048
             InitializeComponent();
             createBoard();
         }
-        private const int maxRows = 4;
-        private const int maxCols = 4;
-        BoardClass boardRep = new BoardClass();
+        private const int maxRows = 4; // Max Rows
+        private const int maxCols = 4;// Max Collums
+        BoardClass internalboardRep = new BoardClass(); // create the internalBoard Representation of the board.
         private Label[,] newLabel = new Label[maxRows, maxCols];
         
-
-        
+       
+        //This method is a modified version from the NIM game, It basically generatate the label dynamicaly
+        // and add the label to the panel in a 4X4 grid
      private void createBoard() { 
         
             pnlBoard.Visible = true;
@@ -36,7 +37,7 @@ namespace _2048
             // The board is treated like a maxRows x MaxCols array
             for (int row = 0; row < maxRows; row++)
             {
-                // For each new row, insert at left the Row i Button
+                // For each new row, insert at left the Row i label
                 loc.Y = topMargin + row * (size.Height + padding);
                 int extraLeftPadding = 12;
                 for (int col = 0; col < maxCols; col++)
@@ -44,7 +45,7 @@ namespace _2048
                     newLabel[row, col] = new System.Windows.Forms.Label();
                     newLabel[row, col].Location = new Point(extraLeftPadding + col * (size.Width + padding), loc.Y);
                     newLabel[row, col].Size = size;
-                    newLabel[row, col].Text = "0";
+                    newLabel[row, col].Text = "";
                     newLabel[row, col].Enabled = false;
                     newLabel[row, col].Visible = true;
                     newLabel[row, col].BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -74,6 +75,7 @@ namespace _2048
         {
 
         }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {

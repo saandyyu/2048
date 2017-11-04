@@ -27,9 +27,9 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.pnlBoard = new System.Windows.Forms.Panel();
             this.lblScore = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtScore = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBestScore = new System.Windows.Forms.TextBox();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnResetGame = new System.Windows.Forms.Button();
             this.lblInstruction = new System.Windows.Forms.Label();
@@ -109,14 +109,14 @@
             this.lblScore.TabIndex = 8;
             this.lblScore.Text = "SCORE:";
             // 
-            // textBox1
+            // txtScore
             // 
-            this.textBox1.Location = new System.Drawing.Point(502, 42);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 48);
-            this.textBox1.TabIndex = 9;
+            this.txtScore.Location = new System.Drawing.Point(502, 42);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(4);
+            this.txtScore.Multiline = true;
+            this.txtScore.Name = "txtScore";
+            this.txtScore.Size = new System.Drawing.Size(100, 48);
+            this.txtScore.TabIndex = 9;
             // 
             // label1
             // 
@@ -129,14 +129,14 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "BEST SCORE:";
             // 
-            // textBox2
+            // txtBestScore
             // 
-            this.textBox2.Location = new System.Drawing.Point(678, 42);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 48);
-            this.textBox2.TabIndex = 11;
+            this.txtBestScore.Location = new System.Drawing.Point(678, 42);
+            this.txtBestScore.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBestScore.Multiline = true;
+            this.txtBestScore.Name = "txtBestScore";
+            this.txtBestScore.Size = new System.Drawing.Size(100, 48);
+            this.txtBestScore.TabIndex = 11;
             // 
             // btnUndo
             // 
@@ -191,9 +191,9 @@
             this.Controls.Add(this.lblInstruction);
             this.Controls.Add(this.btnResetGame);
             this.Controls.Add(this.btnUndo);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBestScore);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtScore);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pnlBoard);
             this.Controls.Add(this.btnQuit);
@@ -219,9 +219,9 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Panel pnlBoard;
         private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBestScore;
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnResetGame;
         private System.Windows.Forms.Label lblInstruction;

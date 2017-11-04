@@ -12,12 +12,12 @@ namespace _2048
         private int value;
         private bool merged;
         
-        //instanticate tile with a value of zero==empty
+        //instantiate tile with a value of zero==empty
         public Tile()
         {
             this.value=0 ;
         }
-        //instanticate tile with a value
+        //instantiate tile with a value
         public Tile(int value)
         {
             this.value = value;
@@ -36,7 +36,14 @@ namespace _2048
         //if tile equal to other tiles. Make it easier to merge.
         public bool sameTile(Tile tile)
         {
-            return false;
+            if (value == tile.value)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void merge(Tile tile)
