@@ -97,7 +97,7 @@
             this.pnlBoard.Name = "pnlBoard";
             this.pnlBoard.Size = new System.Drawing.Size(527, 478);
             this.pnlBoard.TabIndex = 7;
-            this.pnlBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBoard_Paint);
+            
             // 
             // lblScore
             // 
@@ -147,7 +147,6 @@
             this.btnUndo.TabIndex = 12;
             this.btnUndo.Text = "UNDO";
             this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnResetGame
             // 

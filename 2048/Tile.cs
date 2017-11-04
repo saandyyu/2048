@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* CIS 3309
+  * PROJECT 3: GAME DESIGN
+  * PHU LY AND SANDY YU
+  * INSTRUCTOR: FRANK FRIEDMAN
+  * */
+
 namespace _2048
 {
     //What is the purpose of the Tile Class? To keep track of the tiles
