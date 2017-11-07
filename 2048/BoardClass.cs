@@ -16,7 +16,7 @@ namespace _2048
     {
         const int cols = 4;
         const int rows = 4;
-        //oivate int Score;
+        //private int Score;
         Random rand = new Random();
         //int BestScore;
         public Tile[,] board;
@@ -43,10 +43,6 @@ namespace _2048
             fillBoard();
 
         }
-        public Tile[,] getBoard()
-        {
-            return board;
-        }
 
 
         public void addRandomTile()
@@ -67,9 +63,28 @@ namespace _2048
                 }
             }
         }
+
+        //Check to see if there are move available
         public void MoveAvailable()
         {
-
+            bool empty = false;  
+            for (int i = 0; i < rows; i++)//traverse through the 2D array.
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    //if a 0 is found in the 2D array, we can confirm that the board is indeed empty;
+                    //so we set empty to true;
+                    while (board[i, j].getValue() == 0 && !empty) 
+                    {
+                        empty = true; 
+                    }
+                }//end of cols
+            }//end of  rows
+            if (!empty) // display Message to let user know if the board is full;
+            {
+                MessageBox.Show("NO MORE MOVE AVAILABLE, GAME OVER", "GAME OVER");
+                Application.Exit();
+            }
         }
         //method to see if the game reach 2048, if its reach, end the game.
         public Boolean reach2048()

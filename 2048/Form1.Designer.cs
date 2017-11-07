@@ -30,7 +30,6 @@
             this.txtScore = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBestScore = new System.Windows.Forms.TextBox();
-            this.btnUndo = new System.Windows.Forms.Button();
             this.btnResetGame = new System.Windows.Forms.Button();
             this.lblInstruction = new System.Windows.Forms.Label();
             this.lbl2048 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.btnUP.TabIndex = 2;
             this.btnUP.Text = "Up";
             this.btnUP.UseVisualStyleBackColor = true;
+            this.btnUP.Click += new System.EventHandler(this.btnUP_Click);
             // 
             // btnLeft
             // 
@@ -55,6 +55,7 @@
             this.btnLeft.TabIndex = 3;
             this.btnLeft.Text = "Left";
             this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnDown
             // 
@@ -65,6 +66,7 @@
             this.btnDown.TabIndex = 4;
             this.btnDown.Text = "Down";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnRight
             // 
@@ -75,6 +77,7 @@
             this.btnRight.TabIndex = 5;
             this.btnRight.Text = "Right";
             this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnQuit
             // 
@@ -97,7 +100,6 @@
             this.pnlBoard.Name = "pnlBoard";
             this.pnlBoard.Size = new System.Drawing.Size(527, 478);
             this.pnlBoard.TabIndex = 7;
-            
             // 
             // lblScore
             // 
@@ -138,19 +140,9 @@
             this.txtBestScore.Size = new System.Drawing.Size(100, 48);
             this.txtBestScore.TabIndex = 11;
             // 
-            // btnUndo
-            // 
-            this.btnUndo.Location = new System.Drawing.Point(505, 105);
-            this.btnUndo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(99, 55);
-            this.btnUndo.TabIndex = 12;
-            this.btnUndo.Text = "UNDO";
-            this.btnUndo.UseVisualStyleBackColor = true;
-            // 
             // btnResetGame
             // 
-            this.btnResetGame.Location = new System.Drawing.Point(631, 105);
+            this.btnResetGame.Location = new System.Drawing.Point(678, 105);
             this.btnResetGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetGame.Name = "btnResetGame";
             this.btnResetGame.Size = new System.Drawing.Size(99, 55);
@@ -166,7 +158,7 @@
             this.lblInstruction.Name = "lblInstruction";
             this.lblInstruction.Size = new System.Drawing.Size(324, 175);
             this.lblInstruction.TabIndex = 14;
-            this.lblInstruction.Text = "Instruction: \r\nSwipe in any direction to move\r\nthe tile. If the tile matched, It " +
+            this.lblInstruction.Text = "Instruction: \r\nClick in any direction to move\r\nthe tile. If the tile matched, It " +
     "will \r\nmerge into a single tile. \r\nFor example, 2+2=4. \r\nTo win the game, Reach " +
     "2048.\r\nGOOD LUCK!";
             // 
@@ -189,7 +181,6 @@
             this.Controls.Add(this.lbl2048);
             this.Controls.Add(this.lblInstruction);
             this.Controls.Add(this.btnResetGame);
-            this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.txtBestScore);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtScore);
@@ -221,7 +212,6 @@
         private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBestScore;
-        private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnResetGame;
         private System.Windows.Forms.Label lblInstruction;
         private System.Windows.Forms.Label lbl2048;

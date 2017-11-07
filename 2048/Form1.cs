@@ -109,5 +109,33 @@ namespace _2048
         {
             writeBoard();
         }
+
+        private void btnUP_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
     }
 }
