@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+   /* CIS 3309
+    * PROJECT 3: GAME DESIGN
+    * PHU LY AND SANDY YU
+    * INSTRUCTOR: FRANK FRIEDMAN
+    * */
+
 namespace _2048
 {
     public partial class Form1 : Form
@@ -17,17 +23,18 @@ namespace _2048
             InitializeComponent();
             createBoard();
         }
-        private const int maxRows = 4;
-        private const int maxCols = 4;
-        BoardClass boardRep = new BoardClass();
+        private const int maxRows = 4; // Max Rows
+        private const int maxCols = 4;// Max Collums
+        BoardClass internalboardRep = new BoardClass(); // create the internalBoard Representation of the board.
         private Label[,] newLabel = new Label[maxRows, maxCols];
-        
 
-        
-     private void createBoard() { 
-        
+
+        //This method is a modified version from the NIM game that  generate 16 label dynamicaly;
+        // add the label to the panel in a 2D array called newLabel;
+        // Display Number in our form.
+        private void createBoard()
+        {
             pnlBoard.Visible = true;
-
             Size size = new Size(85, 85);
             Point loc = new Point(0, 0);
             int padding = 10;
@@ -36,7 +43,7 @@ namespace _2048
             // The board is treated like a maxRows x MaxCols array
             for (int row = 0; row < maxRows; row++)
             {
-                // For each new row, insert at left the Row i Button
+                // For each new row, insert at left the Row i label
                 loc.Y = topMargin + row * (size.Height + padding);
                 int extraLeftPadding = 12;
                 for (int col = 0; col < maxCols; col++)
@@ -44,40 +51,91 @@ namespace _2048
                     newLabel[row, col] = new System.Windows.Forms.Label();
                     newLabel[row, col].Location = new Point(extraLeftPadding + col * (size.Width + padding), loc.Y);
                     newLabel[row, col].Size = size;
-                    newLabel[row, col].Text = "0";
                     newLabel[row, col].Enabled = false;
                     newLabel[row, col].Visible = true;
                     newLabel[row, col].BackColor = System.Drawing.SystemColors.ScrollBar;
                     newLabel[row, col].Name = "lbl" + row + col;
                     newLabel[row, col].Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     newLabel[row, col].TextAlign = ContentAlignment.MiddleCenter;
-
                     pnlBoard.Controls.Add(newLabel[row, col]);
                 } // end for col
             } // end for row
         } // end createBoard
 
-        private void button5_Click(object sender, EventArgs e)
+          //check to see if the internal Board from the boardClass contain a value in them (since 0 represent that the board is empty)
+          //if true, set the text of the label to the value of the board, else leave the label blank.\
+          //this will displayed the number needed for the form.
+        public void writeBoard()
         {
+            for(int row = 0; row < maxRows; row++)
+            {
+                for(int col=0;col< maxCols; col++)
+                {
+                    if (internalboardRep.board[row, col].getValue() > 0)
+                    {
+                        newLabel[row, col].Text = internalboardRep.board[row, col].getValue().ToString();
+                    }
+                    else
+                    {
+                        newLabel[row, col].Text = "";
+                    }
+                }// end for col
+            }// end for row
+        }//end writeBoard
+       
 
-        }
 
+        //    if (e.KeyCode == Keys.Left)
+        //    {
+        //        if (internalboardRep.moveleftTile())
+        //        {
 
-
+        //            //if (!board.isGameOver())
+        //            //{
+        //            //    board.addNewField();
+        //            //    drawBoard();
+        //            //}
+        //        }
+        //        //else if (board.isGameOver())
+        //        //    gameOver();
+        //    }
+            
+            //}
         private void btnQuit_Click(object sender, EventArgs e)
-
         {
             Application.Exit();
         }
-
-        private void pnlBoard_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            writeBoard();
+        }
 
+        private void btnUP_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            internalboardRep.addRandomTile();
+            writeBoard();
+            internalboardRep.MoveAvailable();
         }
     }
 }

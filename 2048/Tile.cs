@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* CIS 3309
+  * PROJECT 3: GAME DESIGN
+  * PHU LY AND SANDY YU
+  * INSTRUCTOR: FRANK FRIEDMAN
+  * */
+
 namespace _2048
 {
     //What is the purpose of the Tile Class? To keep track of the tiles
@@ -12,12 +18,12 @@ namespace _2048
         private int value;
         private bool merged;
         
-        //instanticate tile with a value of zero==empty
+        //instantiate tile with a value of zero==empty
         public Tile()
         {
             this.value=0 ;
         }
-        //instanticate tile with a value
+        //instantiate tile with a value
         public Tile(int value)
         {
             this.value = value;
@@ -36,7 +42,14 @@ namespace _2048
         //if tile equal to other tiles. Make it easier to merge.
         public bool sameTile(Tile tile)
         {
-            return false;
+            if (value == tile.value)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void merge(Tile tile)

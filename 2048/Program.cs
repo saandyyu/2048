@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Phu Ly
-// CIS 3309
+/* CIS 3309
+  * PROJECT 3: GAME DESIGN
+  * PHU LY AND SANDY YU
+  * INSTRUCTOR: FRANK FRIEDMAN
+  * */
 namespace _2048
 {
     static class Program
