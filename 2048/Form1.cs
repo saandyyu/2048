@@ -8,16 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-   /* CIS 3309
-    * PROJECT 3: GAME DESIGN
-    * PHU LY AND SANDY YU
-    * INSTRUCTOR: FRANK FRIEDMAN
-    * */
+/* CIS 3309
+ * PROJECT 3: GAME DESIGN
+ * PHU LY AND SANDY YU
+ * INSTRUCTOR: FRANK FRIEDMAN
+ * */
 
 namespace _2048
 {
     public partial class Form1 : Form
     {
+        private BoardClass board;
         public Form1()
         {
             InitializeComponent();
@@ -62,14 +63,14 @@ namespace _2048
             } // end for row
         } // end createBoard
 
-          //check to see if the internal Board from the boardClass contain a value in them (since 0 represent that the board is empty)
-          //if true, set the text of the label to the value of the board, else leave the label blank.\
-          //this will displayed the number needed for the form.
+        //check to see if the internal Board from the boardClass contain a value in them (since 0 represent that the board is empty)
+        //if true, set the text of the label to the value of the board, else leave the label blank.\
+        //this will displayed the number needed for the form.
         public void writeBoard()
         {
-            for(int row = 0; row < maxRows; row++)
+            for (int row = 0; row < maxRows; row++)
             {
-                for(int col=0;col< maxCols; col++)
+                for (int col = 0; col < maxCols; col++)
                 {
                     if (internalboardRep.board[row, col].getValue() > 0)
                     {
@@ -82,7 +83,7 @@ namespace _2048
                 }// end for col
             }// end for row
         }//end writeBoard
-       
+
 
 
         //    if (e.KeyCode == Keys.Left)
@@ -99,8 +100,8 @@ namespace _2048
         //        //else if (board.isGameOver())
         //        //    gameOver();
         //    }
-            
-            //}
+
+        //}
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -115,6 +116,7 @@ namespace _2048
             internalboardRep.addRandomTile();
             writeBoard();
             internalboardRep.MoveAvailable();
+            internalboardRep.moveBoard(BoardClass.Direction.eTOP);
         }
 
         private void btnRight_Click(object sender, EventArgs e)
@@ -122,6 +124,7 @@ namespace _2048
             internalboardRep.addRandomTile();
             writeBoard();
             internalboardRep.MoveAvailable();
+            internalboardRep.moveBoard(BoardClass.Direction.eRIGHT);
         }
 
         private void btnDown_Click(object sender, EventArgs e)
@@ -129,6 +132,7 @@ namespace _2048
             internalboardRep.addRandomTile();
             writeBoard();
             internalboardRep.MoveAvailable();
+            internalboardRep.moveBoard(BoardClass.Direction.eBOTTOM);
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -136,6 +140,35 @@ namespace _2048
             internalboardRep.addRandomTile();
             writeBoard();
             internalboardRep.MoveAvailable();
+            internalboardRep.moveBoard(BoardClass.Direction.eLEFT);
         }
+
+        private void btnResetGame_Click(object sender, EventArgs e)
+        {
+
+            internalboardRep.fillBoard();
+            writeBoard();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Up || keyData == Keys.W)
+            {
+                btnUP.PerformClick();
+            }
+            if (keyData == Keys.Down || keyData == Keys.S)
+            {
+                btnDown.PerformClick();
+            }
+            if (keyData == Keys.Left || keyData == Keys.A)
+            {
+                btnLeft.PerformClick();
+            }
+            if (keyData == Keys.Right || keyData == Keys.D)
+            {
+                btnRight.PerformClick();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        
     }
 }

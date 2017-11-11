@@ -16,12 +16,26 @@ namespace _2048
     {
         const int cols = 4;
         const int rows = 4;
-        //private int Score;
+
         Random rand = new Random();
-        //int BestScore;
+
         public Tile[,] board;
-        
-        //fill the board with 4 by 4 board, it create and instances of tile class
+        //ScoreClass scores = new ScoreClass();
+
+        public enum GameState
+        {
+            eGame,
+            eAbout,
+        };
+        public enum Direction
+        {
+            eTOP,
+            eBOTTOM,
+            eLEFT,
+            eRIGHT,
+        };
+        private GameState currentGameState = GameState.eGame;
+        //fill the board with 4 by 4 board with 0s, it creates and instances of tile class
         public void fillBoard()
         {
             for(int i = 0; i < rows;i++)
@@ -80,12 +94,13 @@ namespace _2048
                     }
                 }//end of cols
             }//end of  rows
-            if (!empty) // display Message to let user know if the board is full;
+            if (!empty) // display Message to let user know if the board is full with no possible merges 
             {
                 MessageBox.Show("NO MORE MOVE AVAILABLE, GAME OVER", "GAME OVER");
                 Application.Exit();
             }
         }
+        
         //method to see if the game reach 2048, if its reach, end the game.
         public Boolean reach2048()
         {
@@ -111,5 +126,169 @@ namespace _2048
             return false;
         }
 
-    }//end boardClass
+        public void moveBoard(Direction moveDirection)
+        {
+            Boolean boardAdd = false;
+
+            if (currentGameState == GameState.eAbout) currentGameState = GameState.eGame;
+
+            switch (moveDirection)
+            {
+                //move all tiles up
+                case Direction.eTOP:
+                    for (int i = 0; i < 4; i++)
+                    {
+                        for (int j = 0; j < 4; j++)
+                        {
+                            for (int k = j + 1; k < 4; k++)
+                            {
+                                if (board[i, k].getValue() == 0)
+                                {
+                                    continue;
+                                }
+                                else if (board[i, k] == board[i, j])
+                                {
+                                   // board[i, j] = board[i, j] *2;
+                                    //score += board[i, j];
+                                    board[i, k].setValue(0);
+                                    boardAdd = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    if (board[i, j].getValue() == 0 && board[i, k].getValue() != 0)
+                                    {
+                                        board[i, j] = board[i, k];
+                                        board[i, k].setValue(0);
+                                        j--;
+                                        boardAdd = true;
+                                        break;
+                                    }
+                                    else if (board[i, j].getValue() != 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                case Direction.eRIGHT:
+                    for (int j = 0; j < 4; j++)
+                    {
+                        for (int i = 3; i >= 0; i--)
+                        {
+                            for (int k = i - 1; k >= 0; k--)
+                            {
+                                if (board[k, j].getValue() == 0)
+                                {
+                                    continue;
+                                }
+                                else if (board[k, j] == board[i, j])
+                                {
+                                    //board[i, j] *= 2;
+                                    //score += board[i,j];
+                                    board[k, j].setValue(0);
+                                    boardAdd = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    if (board[i, j].getValue() == 0 && board[k, j].getValue() != 0)
+                                    {
+                                        board[i, j] = board[k, j];
+                                        board[k, j].setValue(0);
+                                        i++;
+                                        boardAdd = true;
+                                        break;
+                                    }
+                                    else if (board[i, j].getValue() != 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                case Direction.eBOTTOM:
+                    for (int i = 0; i < 4; i++)
+                    {
+                        for (int j = 3; j >= 0; j--)
+                        {
+                            for (int k = j - 1; k >= 0; k--)
+                            {
+                                if (board[i, k].getValue() == 0)
+                                {
+                                    continue;
+                                }
+                                else if (board[i, k] == board[i, j])
+                                {
+                                    //board[i, j].getValue() *= 2;
+                                    //score += board[i,j];
+                                    board[i, k].setValue(0);
+                                    boardAdd = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    if (board[i, j].getValue() == 0 && board[i, k].getValue() != 0)
+                                    {
+                                        board[i, j] = board[i, k];
+                                        board[i, k].setValue(0);
+                                        j++;
+                                        boardAdd = true;
+                                        break;
+                                    }
+                                    else if (board[i, j].getValue() != 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                case Direction.eLEFT:
+                    for (int j = 0; j < 4; j++)
+                    {
+                        for (int i = 0; i < 4; i++)
+                        {
+                            for (int k = i + 1; k < 4; k++)
+                            {
+                                if (board[k, j].getValue() == 0)
+                                {
+                                    continue;
+                                }
+                                else if (board[k, j] == board[i, j])
+                                {
+                                    //board[i, j] *= 2; 
+                                    //score += board[i,j];
+                                    board[k, j].setValue(0);
+                                    boardAdd = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    if (board[i, j].getValue() == 0 && board[k, j].getValue() != 0)
+                                    {
+                                        board[i, j] = board[k, j];
+                                        //board[k, j].setValue(0);
+                                        i--;
+                                        boardAdd = true;
+                                        break;
+                                    }
+                                    else if (board[i, j].getValue() != 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+        }//end boardClass
 }//end Namespace
+
