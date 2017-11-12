@@ -21,6 +21,9 @@ namespace _2048
 
         public Tile[,] board;
         //ScoreClass scores = new ScoreClass();
+        private int addNumber = 2;
+        private Boolean gameOver = false;
+        private int newX, newY;
 
         public enum GameState
         {
@@ -100,15 +103,28 @@ namespace _2048
                 Application.Exit();
             }
         }
-        
-        //method to see if the game reach 2048, if its reach, end the game.
+
+        //method to see if the player has reached a 2048 tile
+        //if its reach, game is over 
         public Boolean reach2048()
         {
             bool result = false;
-            
+            for (int i = 0; i < rows; i++)//traverse through the 2D array.
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    //if 2048 is found in the 2D array
+                    //we set result to true to indicate
+                    //that a 2048 tile was reached  
+                    while (board[i, j].getValue() == 2048)
+                    {
+                        result = true;
+                    }
+                    return result;
+                }
+            }
             return result;
-        } 
-
+        }
         public bool moveleftTile()
         {
             return false;
@@ -288,7 +304,27 @@ namespace _2048
                     }
                     break;
             }
+            if (boardAdd)
+            {
+                ++addNumber;
+            }
+
         }
-        }//end boardClass
+        public void Update()
+        {
+            while (!gameOver && addNumber > 0)
+            {
+                int nX = rand.Next(0, 4), nY = rand.Next(0, 4);
+
+                if (board[nX,nY].getValue() == 0)
+                {
+                    //board[nX,nY].getValue() = rand.Next(0, 20) == 0 ? rand.Next(0, 15) == 0 ? 8 : 4 : 2;
+                    newX = nX;
+                    newY = nY;
+                    --addNumber;
+                }
+            }
+        }
+    }//end boardClass
 }//end Namespace
 

@@ -42,7 +42,6 @@ namespace _2048
                 //case 4096:
                 //case 8192:
                 //case 16384:
-                    //return 17;
             }
 
             return 0;
