@@ -42,7 +42,6 @@ namespace _2048
                 //case 4096:
                 //case 8192:
                 //case 16384:
-                    //return 17;
             }
 
             return 0;
@@ -52,10 +51,9 @@ namespace _2048
         {
             return score;
         }
-
-        //public int setScore()
-        //{
-
-        //}
+        public void setScore(int score)
+        {
+            this.score = score; 
+        }
     }//end of class
 }//end of namespace

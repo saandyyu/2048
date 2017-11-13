@@ -154,20 +154,29 @@ namespace _2048
             if (keyData == Keys.Up || keyData == Keys.W)
             {
                 btnUP.PerformClick();
+                updateGame();
             }
             if (keyData == Keys.Down || keyData == Keys.S)
             {
                 btnDown.PerformClick();
+                updateGame();
             }
             if (keyData == Keys.Left || keyData == Keys.A)
             {
                 btnLeft.PerformClick();
+                updateGame();
             }
             if (keyData == Keys.Right || keyData == Keys.D)
             {
                 btnRight.PerformClick();
+                updateGame();
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        public void updateGame()
+        {
+            internalboardRep.Update();
         }
         
     }
