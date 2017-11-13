@@ -331,7 +331,7 @@ namespace _2048
             return result;
         }
 
-
+        //Moves tiles and merge tiles 
         public void moveBoard(Direction moveDirection)
         {
             if (gameOver() == false)
@@ -503,6 +503,7 @@ namespace _2048
             {
                 this.addRandomTile();
             }
+            
             //Game Over
             //if (this.gameOver() == true)
             //{
