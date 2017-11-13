@@ -51,10 +51,9 @@ namespace _2048
         {
             return score;
         }
-
-        //public int setScore()
-        //{
-
-        //}
+        public void setScore(int score)
+        {
+            this.score = score; 
+        }
     }//end of class
 }//end of namespace

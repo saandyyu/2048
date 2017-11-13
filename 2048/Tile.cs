@@ -21,7 +21,7 @@ namespace _2048
         //instantiate tile with a value of zero==empty
         public Tile()
         {
-            this.value=0 ;
+            this.value = 0 ;
         }
         //instantiate tile with a value
         public Tile(int value)
@@ -38,7 +38,6 @@ namespace _2048
         {
             return value;
         }
-
         //if tile equal to other tiles. Make it easier to merge.
         public bool sameTile(Tile tile)
         {
@@ -82,10 +81,36 @@ namespace _2048
         }
         public bool canMergeWith(Tile otherTile)
         {
-            //return true or fals. It takes in abother tiles and check to see if the two tiles can be merge. 
+            
+            //return true or false. It takes in abother tiles and check to see if the two tiles can be merge. 
             //if so merge it.
             return false;
         }
+        public int Value
+        {
+            get { return this.value; }
+            set { this.value = value;}
+        }
 
+        public Boolean isEmpty()
+        {
+            bool empty = false;
+            if (value== 0)
+            {
+                empty = true;
+            }
+            return empty;
+        }
+        public int increase()
+        {
+            value = value * 2 ;
+            return value;
+        }
+
+        public int removeTile()
+        {
+            this.value = 0;
+            return value;
+        }
     }//end of tileClass
 }//end of namespace
