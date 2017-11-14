@@ -30,7 +30,7 @@ namespace _2048
         private Label[,] newLabel = new Label[maxRows, maxCols];
 
 
-        //This method is a modified version from the NIM game that  generate 16 label dynamicaly;
+        //This method is a modified version from the NIM game that generate 16 label dynamicaly;
         // add the label to the panel in a 2D array called newLabel;
         // Display Number in our form.
         private void createBoard()
@@ -56,8 +56,9 @@ namespace _2048
                     newLabel[row, col].Visible = true;
                     newLabel[row, col].BackColor = System.Drawing.SystemColors.ScrollBar;
                     newLabel[row, col].Name = "lbl" + row + col;
-                    newLabel[row, col].Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    newLabel[row, col].Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     newLabel[row, col].TextAlign = ContentAlignment.MiddleCenter;
+                   // newLabel[row, col]
                     pnlBoard.Controls.Add(newLabel[row, col]);
                 } // end for col
             } // end for row
@@ -86,22 +87,7 @@ namespace _2048
 
 
 
-        //    if (e.KeyCode == Keys.Left)
-        //    {
-        //        if (internalboardRep.moveleftTile())
-        //        {
-
-        //            //if (!board.isGameOver())
-        //            //{
-        //            //    board.addNewField();
-        //            //    drawBoard();
-        //            //}
-        //        }
-        //        //else if (board.isGameOver())
-        //        //    gameOver();
-        //    }
-
-        //}
+       
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -113,34 +99,39 @@ namespace _2048
 
         private void btnUP_Click(object sender, EventArgs e)
         {
-            internalboardRep.addRandomTile();
-            writeBoard();
+            //internalboardRep.addRandomTile();
+           // writeBoard();
             internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eTOP);
+            writeBoard();
+
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            internalboardRep.addRandomTile();
-            writeBoard();
+            //internalboardRep.addRandomTile();
+            //writeBoard();
             internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eRIGHT);
+            writeBoard();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            internalboardRep.addRandomTile();
-            writeBoard();
+           // internalboardRep.addRandomTile();
+            //writeBoard();
             internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eBOTTOM);
+            writeBoard();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            internalboardRep.addRandomTile();
-            writeBoard();
+           // internalboardRep.addRandomTile();
+            //writeBoard();
             internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eLEFT);
+            writeBoard();
         }
 
         private void btnResetGame_Click(object sender, EventArgs e)
