@@ -12,23 +12,21 @@ using System.Windows.Forms;
   * */
 namespace _2048
 {
+    //The purpose of the board class is to keep track of the board
+
     class BoardClass
     {
+        //initializing attributes for this class
         const int cols = 4;
         const int rows = 4;
         Random rand = new Random();
 
         public Tile[,] board;
-        ScoreClass scores = new ScoreClass();
+        //ScoreClass scores = new ScoreClass();
         int newScore = 0;
         private int addNumber = 2;
         private int newX, newY;
 
-        public enum GameState
-        {
-            eGame,
-            eAbout,
-        };
         public enum Direction
         {
             eTOP,
@@ -36,7 +34,6 @@ namespace _2048
             eLEFT,
             eRIGHT,
         };
-        //private GameState currentGameState = GameState.eGame;
         //fill the board with 4 by 4 board with 0s, it creates and instances of tile class
         public void fillBoard()
         {
@@ -60,7 +57,7 @@ namespace _2048
 
         }
 
-
+        //Adds a random tile between 2 or 4 and randomly adds it to an empty space on the board 
         public void addRandomTile()
         {
             //Random rand = new Random();
@@ -81,7 +78,8 @@ namespace _2048
             }
         }
 
-        //Check to see if there are move available
+        //Check to see if there are move available 
+        //by checking if the board is full with no tiles that are able to merge
         public void MoveAvailable()
         {
             bool empty = false;  
@@ -106,7 +104,8 @@ namespace _2048
         }
 
         //method to see if the player has reached a 2048 tile
-        //if its reach, game is over 
+        //returns true if 2048 tile is on the board 
+        //returns false otherwise
         public Boolean reach2048()
         {
             bool result = false;
@@ -126,6 +125,9 @@ namespace _2048
             }
             return result;
         }
+        //Checks to see if the game is over
+        //returns true if the board is filled with no more moves are available and there are no merges to be done
+        //returns false when the board is not filled or there are moves available and there are merges to be done
         public Boolean gameOver()
         {
             bool result = false;
@@ -145,7 +147,7 @@ namespace _2048
             return result;
         }
 
-        //Moves tiles and merge tiles 
+        //Moves all tiles in either direction (up,down,left,right) and merges the tiles if able to 
         public void moveBoard(Direction moveDirection)
         {
             if (gameOver() == false)
@@ -156,6 +158,7 @@ namespace _2048
             int maxMergedValue = 2;
             switch (moveDirection)
             {
+                //Moves all the tiles to the left of the board
                 case Direction.eLEFT:
                     for (int i = 0; i < 4; i++)
                     {
@@ -170,8 +173,6 @@ namespace _2048
                                 else if (board[i, k].sameTile(board[i, j]))
                                 {
                                     maxMergedValue = Math.Max(maxMergedValue, board[i, j].increase());
-
-
                                     board[i, k].removeTile();
                                     boardAdd = true;
                                     newScore += board[i, j].Value;
@@ -196,6 +197,7 @@ namespace _2048
                         }
                     }
                     break;
+                //Moves all the tiles to bottom of the board 
                 case Direction.eBOTTOM:
                     for (int j = 0; j < 4; j++)
                     {
@@ -234,6 +236,7 @@ namespace _2048
                         }
                     }
                     break;
+                //Moves all the tiles to the right of the board 
                 case Direction.eRIGHT:
                     for (int i = 0; i < 4; i++)
                     {
@@ -272,6 +275,7 @@ namespace _2048
                         }
                     }
                     break;
+                //Moves all the of the tiles to the top of the board
                 case Direction.eTOP:
                     for (int j = 0; j < 4; j++)
                     {
@@ -318,7 +322,8 @@ namespace _2048
                 this.addRandomTile();
             }
         }
-
+        
+        //updates the board whenever the player chooses a direction
         public void Update()
         {
             while (!gameOver() && addNumber > 0)

@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace _2048
 {
-    //What is the purpose of the Tile Class? To keep track of the tiles
+    //The purpose of the tile class is to keep track of the value of the tiles
     public class Tile
     {
         private int value;
         private bool merged;
         
-        //instantiate tile with a value of zero==empty
+        //instantiate tile with a value of zero == empty
         public Tile()
         {
             this.value = 0 ;
@@ -38,7 +38,9 @@ namespace _2048
         {
             return value;
         }
-        //if tile equal to other tiles. Make it easier to merge.
+        //Takes another tile and compares them to see if they are the same
+        //returns true if the value and another tile's value is the same, making the merging process easier
+        //returns false if it is not the same tile 
         public bool sameTile(Tile tile)
         {
             if (value == tile.value)
@@ -86,27 +88,35 @@ namespace _2048
             //if so merge it.
             return false;
         }
+
+        //getter and setter for value with no parameters
         public int Value
         {
             get { return this.value; }
             set { this.value = value;}
         }
 
+        //Checks to see if value is 0 and returns boolean empty
+        //returns true if it is 0, then the tile is considered to be empty 
+        //returns false otherwise
         public Boolean isEmpty()
         {
             bool empty = false;
-            if (value== 0)
+            if (value == 0)
             {
                 empty = true;
             }
             return empty;
         }
+
+        //returns int value after it was multiplied by 2
         public int increase()
         {
             value = value * 2 ;
             return value;
         }
 
+        //returns int value when the value chnaged to 0 making the tile empty
         public int removeTile()
         {
             this.value = 0;

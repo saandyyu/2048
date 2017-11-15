@@ -65,7 +65,7 @@ namespace _2048
         } // end createBoard
 
         //check to see if the internal Board from the boardClass contain a value in them (since 0 represent that the board is empty)
-        //if true, set the text of the label to the value of the board, else leave the label blank.\
+        //if true, set the text of the label to the value of the board, else leave the label blank.
         //this will displayed the number needed for the form.
         public void writeBoard()
         {
@@ -87,7 +87,7 @@ namespace _2048
 
 
 
-       
+        //click event for the quit button, which closes the form
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -97,49 +97,56 @@ namespace _2048
             writeBoard();
         }
 
+        //click event for the up button
         private void btnUP_Click(object sender, EventArgs e)
         {
             //internalboardRep.addRandomTile();
            // writeBoard();
-            internalboardRep.MoveAvailable();
+            //internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eTOP);
             writeBoard();
 
         }
 
+        //click event for the right button
         private void btnRight_Click(object sender, EventArgs e)
         {
             //internalboardRep.addRandomTile();
             //writeBoard();
-            internalboardRep.MoveAvailable();
+            //internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eRIGHT);
             writeBoard();
         }
 
+        //click event for the down button
         private void btnDown_Click(object sender, EventArgs e)
         {
            // internalboardRep.addRandomTile();
             //writeBoard();
-            internalboardRep.MoveAvailable();
+            //internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eBOTTOM);
             writeBoard();
         }
 
+        //click event for the left button
         private void btnLeft_Click(object sender, EventArgs e)
         {
            // internalboardRep.addRandomTile();
             //writeBoard();
-            internalboardRep.MoveAvailable();
+            //internalboardRep.MoveAvailable();
             internalboardRep.moveBoard(BoardClass.Direction.eLEFT);
             writeBoard();
         }
 
+        //Event handler that resets the game by clearing the board and resetting the score 
         private void btnResetGame_Click(object sender, EventArgs e)
         {
 
             internalboardRep.fillBoard();
             writeBoard();
         }
+
+        //Connects the keyboard arrow keys to the click events that take place for each direction 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Up || keyData == Keys.W)
@@ -165,6 +172,7 @@ namespace _2048
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        //Updates the game 
         public void updateGame()
         {
             internalboardRep.Update();
