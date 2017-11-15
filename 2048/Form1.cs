@@ -25,7 +25,7 @@ namespace _2048
             createBoard();
         }
         private const int maxRows = 4; // Max Rows
-        private const int maxCols = 4;// Max Collums
+        private const int maxCols = 4;// Max Columns
         BoardClass internalboardRep = new BoardClass(); // create the internalBoard Representation of the board.
         private Label[,] newLabel = new Label[maxRows, maxCols];
 
